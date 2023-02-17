@@ -1,3 +1,8 @@
+export interface Gender {
+    MALE: string,
+    FEMALE: string
+}
+
 export interface IUser {
     first_name: string,
     middle_name?: string,
@@ -5,6 +10,6 @@ export interface IUser {
     phone_number: string,
     email: string,
     gender: string,
-    dob: Date,
+    dob: string,
     password: string
 }

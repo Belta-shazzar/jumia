@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { IUser } from "../types/entity.types";
+import bcrypt from "bcryptjs"
 
 const UserSchema = new mongoose.Schema<IUser>(
   {
@@ -29,11 +30,11 @@ const UserSchema = new mongoose.Schema<IUser>(
     },
     gender: {
       type: String,
-      enum: ["Male", "Female"],
+      enum: ["MALE", "FEMALE"],
       required: true,
     },
     dob: {
-      type: Date,
+      type: String,
       required: true,
     },
     password: {
@@ -44,8 +45,12 @@ const UserSchema = new mongoose.Schema<IUser>(
   { timestamps: true }
 );
 
-// UserSchema.pre("save", async () => {
-//   if (this)
-// })
+UserSchema.pre("save", async function (this: any) {
+  console.log(this.password)
+  if (this.isNew) {
+    const salt = await bcrypt.genSalt(parseInt(process.env.BCRYPT_GENSALT!));
+    this.password = await bcrypt.hash(this.password, salt)
+  }
+})
 
 export default mongoose.model("User", UserSchema);

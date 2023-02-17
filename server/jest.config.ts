@@ -6,7 +6,7 @@
 export default {
   preset: "ts-jest",
   testEnvironment: "node",
-  // setupFilesAfterEnv: ["./src/test/setup.ts"],
+  setupFilesAfterEnv: ["./src/test/setup.ts"],
   testTimeout: 50000,
 
   // All imported modules in your tests should be mocked automatically

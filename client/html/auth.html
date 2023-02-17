@@ -1,12 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jumia</title>
+  </head>
+  <body>
+    <div class="content-container">
+      <!-- TODO: Revisit -->
+      <div class="top-bar"></div>
+      <div class="header">
+        <img
+          src="../img/myjumia-top-logo.png"
+          alt="jumia logo"
+          class="logo"
+          id="myjumia-top-logo"
+        />
+      </div>
+      <div class="progress-container">
+        <div role="progressbar" class="mdc-linear-progress">
+          <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-bar-dots"></div>
+          </div>
+          <div
+            class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"
+          >
+            <span class="mdc-linear-progress__bar-inner"></span>
+          </div>
+          <div
+            class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"
+          >
+            <span class="mdc-linear-progress__bar-inner"></span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="overlay" hidden></div>
+        <form action="" method="post">
+          <!-- TODO: Revisit -->
+          <div></div>
+          <input type="hidden" id="uid" name="uid" value="" />
+          <input type="hidden" name="_csrf" value="" />
+
+          <div class="ctx-login-email flow-layout" data-context="login-email">
+            <div class="center">
+              <h2>What's your email address?</h2>
+              <p class="subheading">
+                Type your email to log in or create a Jumia account.
+              </p>
+            </div>
+            <div class="fields">
+              <label for="" class="mdc-text-field">
+                <span class="mdc-notched-outline">
+                  <span class="mdc-notched-outline__loading"></span>
+                  <span class="mdc-notched-outline__notch" style="width: 38px">
+                    <span
+                      class="mdc-floating-label mdc-floating-label--float-above"
+                      id="email"
+                      style
+                      >Email</span
+                    >
+                  </span>
+                  <span class="mdc-notched-outline__trailing"></span>
+                </span>
+
+                <!-- Stopped here -->
+                <input type="text" class="mdc-text-field__input email-input" value="" name="email" type="email" aria-labelledby="email" aria-controls="email" autocomplete="username email">
+              </label>
+
+              <div class="mdc-text-field-helper-line">
+                <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg email" id="email" aria-hidden="true">
+                    ::before
+                    <span id="invalid-email-error-message" class="hidden">This email is not valid. Insert a valid email to continue.</span>
+                    <span id="empty-email-error-message" class="">Type your email to log in or create an account.</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+                <div class="mdc-touch-target-wrapper">
+
+                    <!-- Return -->
+                    <button type="submit" class="mdc-button mdc-button--touch">
+                        <span class="mdc-button__ripple">
+                            ::before
+                            ::after
+                        </span>
+                        <span class="mdc-button__label">Continue</span>
+                        <span class="mdc-button__touch"></span>
+                    </button>
+                </div>
+                <a href="http://">
+                    <div class="mdc-touch-target-wrapper">
+                        <button id="login-with-phone" type="button" class="mdc-button mdc-button--touch thin mdc-ripple-upgraded">
+                            <span class="mdc-button--ripple">
+                                ::before
+                                ::after
+                            </span>
+                            <span class="mdc-button--label">Log in or register with phone number</span>
+                            <span class="mdc-button--touch"></span>
+                        </button>
+                    </div>
+                </a>
+            </div>
+            <div id="social-logins" class="actions">
+                <div style="margin-top: 64px;"></div>
+                <div class="mdc-touch-target-wrapper">
+                    <button id="facebook" onclick="" type="button" class="mdc-button mdc-button--touch mdc-button--raised facebook-blue mdc-ripple-upgraded">
+                        <!-- Return back here -->
+                        svg
+
+                    <span class="mdc-button--ripple">
+                        ::before
+                        ::after
+                    </span>
+                    <span class="mdc-button--label">Log in with Facebook</span>
+                    <span class="mdc-button--touch"></span>
+                    </button>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="center">
+        <div id="footer-text" class="footer-text">
+          "For futher support, you may visit the Help Center or contact our
+          customer service team."
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
