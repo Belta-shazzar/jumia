@@ -5,7 +5,7 @@ import { app } from "../app";
 let mongo: any;
 beforeAll(async () => {
   console.log("Starting in-memory mongodb...");
-  mongo = await MongoMemoryServer.create();
+  mongo = await MongoMemoryServer.create(     );
   const mongoUri = mongo.getUri();
 
   mongoose.set("strictQuery", true);

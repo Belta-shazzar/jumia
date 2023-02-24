@@ -1,11 +1,12 @@
 import express from "express";
-import { signIn, checkMail } from "../../controller/auth.controller";
+import { signUp, checkMail, signIn } from "../../controller/auth.controller";
 import { validateSignInInput } from "../../middleware/input.validator"
 
 const route = express.Router();
 
-route.post("/sign-in", validateSignInInput, signIn);
+route.post("/sign-up", validateSignInInput, signUp);
 route.post("/check-mail", checkMail)
+route.post("/sign-in", signIn)
 
 
 
