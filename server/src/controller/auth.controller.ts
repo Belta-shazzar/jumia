@@ -1,5 +1,4 @@
 import { authenticateUser, getByMail } from "./service/auth.service";
-import { IUser } from "./../types/entity.types";
 import { createJWT } from "./../config/jwt.config";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
@@ -40,4 +39,12 @@ export const signIn = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   const user = await authenticateUser(email, password);
+
+  const jwt = createJWT(user);
+
+  res.status(StatusCodes.OK).json({
+    success: true,
+    data: { first_name: "" },
+    jwt: jwt,
+  });
 };

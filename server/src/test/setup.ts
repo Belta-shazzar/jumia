@@ -12,13 +12,13 @@ beforeAll(async () => {
   await mongoose.connect(mongoUri);
 });
 
-beforeEach(async () => {
-  const collections = await mongoose.connection.db.collections();
+// beforeEach(async () => {
+//   const collections = await mongoose.connection.db.collections();
 
-  for (let collection of collections) {
-    await collection.deleteMany({});
-  }
-});
+//   for (let collection of collections) {
+//     await collection.deleteMany({});
+//   }
+// });
 
 afterAll(async () => {
   console.log("... stopping in-memory mongodb");
