@@ -3,24 +3,34 @@ import { createJWT } from "./../config/jwt.config";
 import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import UserModel from "../model/user.model";
+import { NotFoundError, ConflictError } from "../errors";
+// import { ConflictError } from "../errors/conflict";
 
 const SERVER_ERROR = "an error occurred";
 
 export const signUp = async (req: Request, res: Response) => {
   try {
+    // checks DB for existing mail
+    const checkUser = await getByMail(req.body.email);
+
+    if (checkUser) {
+      throw new ConflictError("Email already exist");
+    }
+
     const user = await UserModel.create({ ...req.body });
 
     const jwt = createJWT(user);
 
-    res
-      .status(StatusCodes.CREATED)
-      .json({
-        success: true,
-        data: { _id: user._id, first_name: user.first_name },
-        jwt,
-      });
-  } catch (error) {
-    throw new Error(error as any);
+    return res.status(StatusCodes.CREATED).json({
+      success: true,
+      data: { _id: user._id, first_name: user.first_name },
+      jwt,
+    });
+  } catch (error: any) {
+    
+    return res
+      .status(parseInt(error.statusCode))
+      .json({ success: false, msg: error.message });
   }
 };
 

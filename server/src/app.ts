@@ -1,6 +1,4 @@
 import express, { Request, Response, NextFunction } from "express";
-import { notFound } from "./middleware/not-found";
-import { errorHandlerMiddleware } from "./middleware/error-handler"
 import route from "./router";
 
 const app = express();
@@ -15,7 +13,8 @@ app.get("/", async (req: Request, res: Response, next: NextFunction) => {
   return res.status(200).send("Jumia clone - Work in progress");
 });
 
-app.use(notFound);
-app.use(errorHandlerMiddleware);
+app.use((req: Request, res: Response) =>
+res.status(404).send("Route does not exist")
+);
 
 export { app };

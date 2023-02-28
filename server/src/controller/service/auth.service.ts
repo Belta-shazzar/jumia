@@ -22,6 +22,6 @@ export const authenticateUser = async (email: string, password: string) => {
 
       return user;
   } catch (error) {
-      console.log(error)
+      throw new Error()
   }
 };
