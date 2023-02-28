@@ -14,7 +14,11 @@ export const signUp = async (req: Request, res: Response) => {
 
     res
       .status(StatusCodes.CREATED)
-      .json({ success: true, data: { first_name: user.first_name }, jwt });
+      .json({
+        success: true,
+        data: { _id: user._id, first_name: user.first_name },
+        jwt,
+      });
   } catch (error) {
     throw new Error(error as any);
   }
@@ -44,7 +48,7 @@ export const signIn = async (req: Request, res: Response) => {
 
   res.status(StatusCodes.OK).json({
     success: true,
-    data: { first_name: "" },
+    data: { _id: user?._id, first_name: user?.first_name },
     jwt: jwt,
   });
 };

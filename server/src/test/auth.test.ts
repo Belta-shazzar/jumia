@@ -27,7 +27,10 @@ describe("Auth API", () => {
     expect(response.body).toEqual(
       expect.objectContaining({
         success: true,
-        data: expect.objectContaining({ first_name: expect.any(String) }),
+        data: expect.objectContaining({
+          _id: expect.any(String),
+          first_name: expect.any(String),
+        }),
         jwt: expect.any(String),
       })
     );
@@ -56,7 +59,10 @@ describe("Auth API", () => {
     expect(response.body).toEqual(
       expect.objectContaining({
         success: true,
-        data: expect.objectContaining({ first_name: expect.any(String) }),
+        data: expect.objectContaining({
+          _id: expect.any(String),
+          first_name: expect.any(String),
+        }),
         jwt: expect.any(String),
       })
     );
